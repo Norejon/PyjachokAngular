@@ -1,0 +1,9 @@
+<p>register-page works!</p>
+<div>
+  <form [formGroup]="form" (ngSubmit)="register()">
+    email: <input formControlName="email" name="email" required>
+    password: <input formControlName="password" name="password" required>
+    username: <input formControlName="username" name="username" required>
+    <button type="submit">Register</button>
+  </form>
+</div>
