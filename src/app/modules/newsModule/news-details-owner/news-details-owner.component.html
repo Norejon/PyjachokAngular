@@ -1,0 +1,22 @@
+<div (click)="goBack()" class="back">Назад</div>
+<div *ngIf="new" class="new">
+  <div><b>{{new.title}}</b></div>
+  <hr>
+  <div class="news-text">{{new.text}}</div>
+  <hr>
+  <div class="news-type">{{new.type}}</div>
+</div>
+  <div>
+    <button (click)="confirmDelete()">delete</button>
+    <button routerLink="edit" routerLinkActive="active">edit</button>
+
+    <div class="confirm" *ngIf="showConfirm">
+      <div class="confirm-content">
+        <h2>Ви впевнені щодо видалення?</h2>
+        <p>Відновити новину буде неможливо.</p>
+        <button (click)="deleteNew()" (click)="hideConfirm()">Так</button>
+        <button (click)="hideConfirm()">Ні</button>
+      </div>
+    </div>
+  </div>
+

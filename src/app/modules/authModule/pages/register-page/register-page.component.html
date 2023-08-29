@@ -1,9 +1,41 @@
-<p>register-page works!</p>
-<div>
+<div class="container">
+<p>Реєстрація</p>
+<div class="register">
   <form [formGroup]="form" (ngSubmit)="register()">
-    email: <input formControlName="email" name="email" required>
+
+    <div class="error" *ngIf="form.controls['email'].invalid && (form.controls['email'].touched || form.controls['email'].dirty)">
+      <span *ngIf="form.controls['email'].errors">*Вкажіть вірний емейл</span>
+    </div>
+    <span *ngIf="uniqueE" class="error">*Цей емейл вже зайнятий</span>
+    email: <input (input)="uniqueEmail()" formControlName="email" name="email" required>
+
+    <div class="error" *ngIf="form.controls['password'].invalid && (form.controls['password'].touched || form.controls['password'].dirty)">
+      <span *ngIf="form.controls['password'].errors">*Пароль не відповідає нормі (Мінімум 6 символів)</span>
+    </div>
     password: <input formControlName="password" name="password" required>
-    username: <input formControlName="username" name="username" required>
+
+    <div class="error" *ngIf="form.controls['nickname'].invalid && (form.controls['nickname'].touched || form.controls['nickname'].dirty)">
+      <span *ngIf="form.controls['nickname'].errors">*Мінімум 3 символи для нікнейму</span>
+    </div>
+    <span *ngIf="uniqueN" class="error">*Цей нікнейм вже зайнятий</span>
+    nickname: <input (input)="uniqueNickname()" formControlName="nickname" name="nickname" required>
+
+    <div class="error" *ngIf="form.controls['birth'].invalid && (form.controls['birth'].touched || form.controls['birth'].dirty)">
+      <span *ngIf="form.controls['birth'].errors">*Ви маєте обрати дату народження</span>
+    </div>
+    birth: <input type="date" formControlName="birth" name="birth" required>
+
+    <div class="error" *ngIf="form.controls['gender'].invalid && (form.controls['gender'].touched || form.controls['gender'].dirty)">
+      <span *ngIf="form.controls['gender'].errors">*Виберіть будь-ласка стать</span>
+    </div>
+    gender:
+    <select formControlName="gender" name="gender" required>
+      <option value="MALE">MALE</option>
+      <option value="FEMALE">FEMALE</option>
+    </select>
     <button type="submit">Register</button>
   </form>
+</div>
+<p>Вже є акаунт?</p>
+<button routerLink="/login" routerLinkActive="active">Увійти</button>
 </div>

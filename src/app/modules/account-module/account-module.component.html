@@ -1,0 +1,42 @@
+<div *ngIf="user">
+  <div class="info">
+    <h3>Панель користувача</h3>
+    <div><span>Нікнейм: </span>{{user.nickname}}</div>
+    <div><span>Дата народження: </span>{{user.birth}}</div>
+    <div><span>Емейл: </span>{{user.email}}</div>
+    <div><span>Стать: </span>{{user.gender}}</div>
+    <div><span>Статус: </span>{{user.role}}</div>
+  </div>
+  <div class="panel">
+    <div routerLink="favorite" routerLinkActive="active">Улюблені заклади</div>
+    <div routerLink="grades" routerLinkActive="active">Мої Відгуки</div>
+    <div routerLink="establishments" routerLinkActive="active">Мої заклади</div>
+    <div routerLink="drinkers" routerLinkActive="active">Мої пиячки</div>
+    <div routerLink="edit" routerLinkActive="active">Редагувати Профіль</div>
+    <button (click)="confirmDelete()">Видалити профіль</button>
+  </div>
+  <div class="confirm" *ngIf="showConfirm">
+    <div class="confirm-content">
+      <h2>Ви впевнені щодо видалення?</h2>
+      <p>Відновити користувача буде неможливо.</p>
+      <button (click)="deleteAccount()" (click)="hideConfirm()" (click)="logout()">Так</button>
+      <button (click)="hideConfirm()">Ні</button>
+    </div>
+  </div>
+  <div>
+  </div>
+  <div *ngIf="user.role === 'ADMIN'">
+    <h3> Панель адміністратора</h3>
+    <div class="panel">
+      <div routerLink="/establishments/disactivated">Заклади на активацію</div>
+      <div routerLink="/users" routerLinkActive="active">Всі Користувачі</div>
+      <div routerLink="analitic" routerLinkActive="active">Статистика</div>
+      <div routerLink="/grades" routerLinkActive="active">Всі відгуки</div>
+      <div routerLink="changer">Присвоювач</div>
+    </div>
+  </div>
+</div>
+<button (click)="logout()">Вийти з акаунту</button>
+<br><hr>
+<router-outlet></router-outlet>
+

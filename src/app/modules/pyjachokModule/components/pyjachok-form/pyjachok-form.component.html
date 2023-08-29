@@ -1,0 +1,27 @@
+<div (click)="goBack()" class="back">Назад</div>
+<div class="pyjachok-form-container">
+  <form [formGroup]="form" (ngSubmit)="pyjachok()" class="pyjachok-form">
+    <label class="form-label">Бюджет:</label>
+    <input formControlName="budget" required type="number" name="budget" required class="form-input">
+
+    <label class="form-label">Кількість людей:</label>
+    <input formControlName="countOfPeople" name="countOfPeople" required type="number" class="form-input">
+
+    <label class="form-label">Дата:</label>
+    <input formControlName="date" type="date" name="date" required class="form-input">
+
+    <label class="form-label">Опис:</label>
+    <input formControlName="description" name="description" required class="form-input">
+
+    <label class="form-label">Час:</label>
+    <input formControlName="time" type="time" name="time" required class="form-input">
+
+    <label class="form-label">Хто платить:</label>
+    <input formControlName="whoPay" name="whoPay" required class="form-input">
+
+    <label class="form-label">Телефон:</label>
+    <input formControlName="phone" type="tel" name="phone" required class="form-input">
+
+    <button type="submit" class="form-button">Пиячок</button>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+<div (click)="goBack()" class="back">Назад</div>
+<div class="form-container">
+  <form [formGroup]="form" (ngSubmit)="addGrade()" class="grade-form">
+    <label class="form-label">
+      Оцінка:
+      <select formControlName="grade" required class="form-select">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </label><br><br>
+    <label class="form-label">Текст оцінки: </label><textarea type="text" formControlName="text" required class="form-input"></textarea>
+    <button type="submit" class="form-button">Зберегти відгук</button>
+  </form>
+</div>

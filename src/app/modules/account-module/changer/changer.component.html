@@ -1,0 +1,10 @@
+<h3>Присвоїти користувачу заклад</h3>
+<form  [formGroup]="changerForm" (ngSubmit)="submitForm()">
+    Id Користувача:
+    <input type="number" formControlName="userId" required>
+    Id Закладу:
+    <input type="number" formControlName="establishmentId" required>
+
+  <button type="submit">Змінити</button>
+</form>
+

@@ -1,0 +1,90 @@
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+  <label>
+    Зображення:
+    <input type="file" accept="image/*" (change)="onImageSelected($event)" required>
+  </label>
+
+  <div class="error" *ngIf="form.controls['name'].invalid && (form.controls['name'].touched || form.controls['name'].dirty)">
+    <span *ngIf="form.controls['name'].errors">*Поле обовязкове до заповнення</span>
+  </div>
+  <label>
+    name:
+    <input type="text" formControlName="name" required>
+  </label>
+
+  <div class="error" *ngIf="form.controls['type'].invalid && (form.controls['type'].touched || form.controls['type'].dirty)">
+    <span *ngIf="form.controls['type'].errors">*Поле обовязкове до заповнення</span>
+  </div>
+  type:
+  <label>
+    <select formControlName="type" required>
+      <option value="CAFE">CAFE</option>
+      <option value="RESTAURANT">RESTAURANT</option>
+      <option value="PIZZERIA">PIZZERIA</option>
+      <option value="BAR">BAR</option>
+    </select>
+  </label>
+
+  <div class="error" *ngIf="form.controls['midle_check'].invalid && (form.controls['midle_check'].touched || form.controls['midle_check'].dirty)">
+    <span *ngIf="form.controls['midle_check'].errors">*Поле обовязкове до заповнення</span>
+  </div>
+  <label>
+    midle_check:
+    <input type="number" formControlName="midle_check" required><br><br>
+  </label>
+
+  <div class="error" *ngIf="form.controls['location'].invalid && (form.controls['location'].touched || form.controls['location'].dirty)">
+    <span *ngIf="form.controls['location'].errors">*Поле обовязкове до заповнення</span>
+  </div>
+  <label>
+    location:
+    <input type="text" formControlName="location" required>
+  </label>
+
+  <div class="error" *ngIf="form.controls['schedule'].invalid && (form.controls['schedule'].touched || form.controls['schedule'].dirty)">
+    <span *ngIf="form.controls['schedule'].errors">*Поле обовязкове до заповнення</span>
+  </div>
+  <label>
+    schedule:
+    <input type="text" formControlName="schedule" required>
+  </label>
+
+  <label>
+    Теги:
+  </label>
+  <div formGroupName="tags">
+    <label *ngFor="let tag of tags">
+      <input type="checkbox" [formControlName]="tag">{{ tag }}
+    </label>
+  </div>
+
+  <br>
+
+  <label>Контакти</label>
+  <label>
+    веб-сайт:
+    <input type="text" formControlName="website" required>
+  </label>
+  <label>
+    телефон:
+    <input type="text" formControlName="phone" required>
+  </label>
+  <label>
+    емейл:
+    <input type="text" formControlName="email" required>
+  </label>
+  <label>
+    telegram:
+    <input type="text" formControlName="telegram" required>
+  </label>
+  <label>
+    instagram:
+    <input type="text" formControlName="instagram" required>
+  </label>
+  <label>
+    інше:
+    <input type="text" formControlName="others" required>
+  </label>
+
+  <button type="submit">Зберегти</button>
+</form>

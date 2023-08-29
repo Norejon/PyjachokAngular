@@ -1,0 +1,3 @@
+<app-establishment *ngFor="let establishment of establishments | paginate: { itemsPerPage: 5, currentPage: currentPage }" [establishment]="establishment"></app-establishment>
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+<div class="add" routerLink="add" routerLinkActive="active">Додати заклад</div>

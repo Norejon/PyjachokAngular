@@ -1,0 +1,12 @@
+<div (click)="goBack()" class="back">Назад</div>
+<div>
+  <label for="startDate">Початкова дата:</label>
+  <input type="date" id="startDate" [(ngModel)]="startDate" (change)="filterAnalitics()" />
+</div>
+
+<div>
+  <label for="endDate">Кінцева дата:</label>
+  <input type="date" id="endDate" [(ngModel)]="endDate" (change)="filterAnalitics()" />
+</div>
+
+<b>Кількість відвідувань за данним діапазоном: {{ filteredAnalitics.length }}</b>

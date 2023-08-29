@@ -1,0 +1,5 @@
+<div *ngFor="let grade of grades | paginate: { itemsPerPage: 10, currentPage: currentPage }" class="grade">
+  <app-grade [grade]="grade"></app-grade>
+</div>
+
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>

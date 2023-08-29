@@ -9,6 +9,7 @@ export interface IDrinker{
   countOfPeople: number;
   whoPay: string;
   budget: number;
+  phone:string;
   user: IUser;
   establishment: IEstablishment;
 }

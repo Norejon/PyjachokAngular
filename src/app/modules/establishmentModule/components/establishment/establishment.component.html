@@ -1,3 +1,8 @@
-<div>
-  {{establishment.id}} {{establishment.name}}
+<div routerLink="{{establishment.id}}" routerLinkActive="active">
+  {{establishment.name}}
+  <ng-container *ngIf="establishment.rating">
+    <span class="rating">
+      <i class="fas fa-star" *ngFor="let star of getStarsArray(establishment.rating)"></i>
+    </span>
+  </ng-container>
 </div>

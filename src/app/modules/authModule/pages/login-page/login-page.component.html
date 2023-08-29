@@ -1,8 +1,19 @@
-<p>login-page works!</p>
-<div>
+<div class="container">
+  <p>Увійдіть</p>
+<div class="login">
   <form [formGroup]="form" (ngSubmit)="login()">
+    <div class="error" *ngIf="form.controls['email'].invalid && (form.controls['email'].touched || form.controls['email'].dirty)">
+      <span *ngIf="form.controls['email'].errors">*Вкажіть вірний емейл</span>
+    </div>
     email: <input formControlName="email" name="email" required>
-    password: <input formControlName="password" name="password" required>
+
+    <div class="error" *ngIf="form.controls['password'].invalid && (form.controls['password'].touched || form.controls['password'].dirty)">
+      <span *ngIf="form.controls['password'].errors">*Пароль не може бути пустим</span>
+    </div>
+    password: <input type="password" formControlName="password" name="password" required>
     <button type="submit">Login</button>
   </form>
+</div>
+<p>Або зареєструйтесь</p>
+<button routerLink="/register" routerLinkActive="active" class="link">Зареєструватись</button>
 </div>

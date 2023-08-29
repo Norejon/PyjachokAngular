@@ -1,0 +1,43 @@
+<div (click)="goBack()" class="back">Назад</div>
+
+<div *ngIf="establishment && establishment.gradesList" class="grades">
+  <!-- Виводимо оцінки, де isOwnerGrade(grade) є true -->
+  <ng-container *ngFor="let grade of establishment.gradesList">
+    <div *ngIf="isOwnerGrade(grade)" (click)="toggleDetails(grade.id)" class="grade">
+      {{establishment.name}}
+      {{ grade.grade }}
+      <div *ngIf="showDetails[grade.id]" class="details">
+        <div>Id: {{ grade.id }}</div>
+        <div>Оцінка: {{ grade.grade }}</div>
+        <div>Заклад: {{establishment.name}}</div>
+        <div>Текст: {{grade.text}}</div>
+        <div>
+          <button routerLink="/establishments/{{establishment.id}}/grade" routerLinkActive="active">Редагувати</button>
+          <button (click)="confirmDelete()">Видалити</button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Виводимо інші оцінки -->
+  <ng-container *ngFor="let grade of establishment.gradesList">
+    <div *ngIf="!isOwnerGrade(grade)" (click)="toggleDetails(grade.id)" class="grade">
+      {{establishment.name}}
+      {{ grade.grade }}
+      <div *ngIf="showDetails[grade.id]" class="details">
+        <div>Id: {{ grade.id }}</div>
+        <div>Оцінка: {{ grade.grade }}</div>
+        <div>Заклад: {{establishment.name}}</div>
+        <div>Текст: {{grade.text}}</div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<div class="confirm" *ngIf="showConfirm">
+  <div class="confirm-content">
+    <h2>Ви впевнені щодо видалення?</h2>
+    <button (click)="deleteGrade()" (click)="hideConfirm()">Так</button>
+    <button (click)="hideConfirm()">Ні</button>
+  </div>
+</div>

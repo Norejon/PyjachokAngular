@@ -1,1 +1,37 @@
-<app-establishment *ngFor="let establishment of establishments" [establishment]="establishment"></app-establishment>
+
+<form [formGroup]="form" (ngSubmit)="filterForm()">
+  <div class="filter">
+    <div class="filter-trigger" (click)="toggleFilter()">Фільтрація</div>
+    <div class="filter-dropdown" [ngClass]="{'show': isFilterOpen}">
+      <label>Рейтинг:</label>
+      <select formControlName="rating">
+        <option value="">Всі</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <label>Тип:</label>
+      <select formControlName="type">
+        <option value="">Всі</option>
+        <option value="CAFE">CAFE</option>
+        <option value="RESTAURANT">RESTAURANT</option>
+        <option value="PIZZERIA">PIZZERIA</option>
+        <option value="BAR">BAR</option>
+      </select>
+      <label>Тег:</label>
+      <div formGroupName="tags">
+        <label *ngFor="let tag of tags">
+          <input type="checkbox" [formControlName]="tag">{{ tag }}
+        </label>
+      </div>
+      <button type="submit">Показати результати</button>
+    </div>
+  </div>
+</form>
+<div>
+  <input (input)="handleInput($event)" type="text" placeholder="Пошук">
+</div>
+<app-establishment *ngFor="let establishment of establishments | paginate: { itemsPerPage: 10, currentPage: currentPage }" [establishment]="establishment"></app-establishment>
+<pagination-controls (pageChange)="changePage($event)"></pagination-controls>

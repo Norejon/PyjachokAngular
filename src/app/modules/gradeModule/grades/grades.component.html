@@ -1,0 +1,4 @@
+<div (click)="goBack()" class="back">Назад</div>
+<app-grade *ngFor="let grade of grades| paginate: { itemsPerPage: 10, currentPage: currentPage }"[grade]="grade"></app-grade>
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+

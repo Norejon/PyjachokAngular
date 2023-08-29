@@ -1,0 +1,20 @@
+<div (click)="goBack()" class="back">Назад</div>
+<div *ngIf="new">
+  <div><b>{{new.title}}</b></div>
+ <div> {{new.text}}</div>
+   <div>{{new.type}}</div>
+  <div *ngIf="user?.role=='ADMIN'">
+    <button (click)="confirmDelete()">delete</button>
+    <button routerLink="edit" routerLinkActive="active">edit</button>
+
+    <div class="confirm" *ngIf="showConfirm">
+      <div class="confirm-content">
+        <h2>Ви впевнені щодо видалення?</h2>
+        <p>Відновити користувача буде неможливо.</p>
+        <button (click)="deleteNew()" (click)="hideConfirm()">Так</button>
+        <button (click)="hideConfirm()">Ні</button>
+      </div>
+    </div>
+
+  </div>
+</div>

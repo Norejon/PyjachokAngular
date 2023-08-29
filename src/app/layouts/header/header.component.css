@@ -1,18 +1,38 @@
-.header{
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+.header {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background: aqua;
-  color: orange;
-  height: 50px;
-  font-size: 25px;
+  justify-content: space-around;
+  background-color: #FF0000;
+  color: #FFFFFF;
+  padding: 10px;
 }
-.header div{
-  padding: 0px;
-}
-.header div:hover{
+
+
+.header div {
   cursor: pointer;
+  padding: 10px;
+  padding: 20px 0px 20px 0px;
+  width: 25%;
+  font-size: 20px;
+  text-align: center;
+  transition: color 0.2s, background-color 0.2s;
+  border-radius: 8px;
+  background-color: rgba(197, 197, 197, 0.29);
+  border: 2px solid #FF0000;
 }
-.active{
-  color:red;
+
+
+.header div.active {
+  font-size: 25px;
+  font-weight: bold;
+  background-color: rgba(9, 0, 0, 0.16);
+  color: rgba(0, 0, 0, 0.55);
 }
+

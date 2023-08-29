@@ -1,0 +1,53 @@
+<div (click)="goBack()" class="back">Назад</div>
+<div *ngIf="establishment">
+    <div class="header">
+      <div routerLink="news" routerLinkActive="active">Новини</div>
+      <div routerLink="grades" routerLinkActive="active">Відгуки</div>
+    </div>
+    <div class="info">
+      <div>Id: {{ establishment.id }}</div>
+      <div><h1>{{ establishment.name }}</h1></div>
+      <div>Тип: {{ establishment.type }}</div>
+      <div>Середній чек: {{ establishment.midle_check }}</div>
+      <div>Рейтинг: {{ establishment.rating }}</div>
+      <div>Адреса: {{ establishment.location }}</div>
+      <div *ngIf="user?.role=='ADMIN'">Дата реєстрації: {{ establishment.registration_date }}</div>
+      Теги:
+      <div *ngFor="let tag of establishment.tags" (click)="applyTagFilter(tag)">{{ tag }}</div>
+      <div *ngIf="establishment.contacts" class="contacts">Контакти:
+       <p *ngIf="establishment.contacts.phone"> Телефон: {{establishment.contacts.phone}}</p>
+        <p *ngIf="establishment.contacts.email"> Емейл: {{establishment.contacts.email}}</p>
+        <p *ngIf="establishment.contacts.telegram"> Telegram: {{establishment.contacts.telegram}}</p>
+        <p *ngIf="establishment.contacts.instagram"> Instagram: {{establishment.contacts.instagram}}</p>
+        <p *ngIf="establishment.contacts.others"> Інше: {{establishment.contacts.others}}</p>
+      </div>
+    </div>
+    <div class="event">
+      <div routerLink="drinker" routerLinkActive="active">Пиячок</div>
+      <div routerLink="grade" routerLinkActive="active">Оцінити заклад</div>
+      <div *ngIf="isInFavorite==false" (click)="addToFavorite()">Додати до улюблених
+      </div>
+      <div *ngIf="isInFavorite==true" (click)="deleteFromFavorite()">Видалити з улюблених
+      </div>
+      <div routerLink="complaint"> Надіслати скаргу</div>
+    </div>
+
+  <div class="confirm" *ngIf="showConfirm">
+    <div class="confirm-content">
+      <h2>Ви впевнені щодо видалення?</h2>
+      <p>Відновити заклад буде неможливо.</p>
+      <button (click)="delete()" (click)="hideConfirm()">Так</button>
+      <button (click)="hideConfirm()">Ні</button>
+    </div>
+  </div>
+
+    <div *ngIf="user?.role=='ADMIN'" class="event">
+      <div routerLink="analitic" routerLinkActive="active">Статистика</div>
+      <div *ngIf="establishment.activated==false" (click)="activate()">Activate</div>
+      <div *ngIf="establishment.activated==true" (click)="desActivate()">Disactivate</div>
+      <button routerLink="edit" routerLinkActive="active">edit</button>
+      <button (click)="confirmDelete()">Delete</button>
+    </div>
+</div>
+
+

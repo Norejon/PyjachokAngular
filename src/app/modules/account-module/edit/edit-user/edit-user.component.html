@@ -1,0 +1,19 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div class="error" *ngIf="userForm.controls['nickname'].invalid && (userForm.controls['nickname'].touched || userForm.controls['nickname'].dirty)">
+    <span *ngIf="userForm.controls['nickname'].errors">*Мінімум 3 символи для нікнейму</span>
+  </div>
+  <span *ngIf="uniqueN" class="error">*Цей нікнейм вже зайнятий</span>
+  nickname: <input (input)="uniqueNickname()" formControlName="nickname" name="nickname" required>
+  <div>
+    <label>Birth:</label>
+    <input type="date" formControlName="birth" name="birth" required>
+  </div>
+  <div>
+    <label>Gender:</label>
+    <select formControlName="gender" name="gender" required>
+      <option value="MALE">MALE</option>
+      <option value="FEMALE">FEMALE</option>
+    </select>
+  </div>
+  <button type="submit">Save</button>
+</form>

@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {IEstablishment} from "../../../../interfaces";
-import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-establishment',
@@ -10,6 +9,9 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class EstablishmentComponent {
 @Input()
   establishment:IEstablishment;
-constructor(private router:Router, private activatedRoute:ActivatedRoute) {
+constructor() {
 }
+  getStarsArray(rating: number): number[] {
+    return Array.from({ length: Math.floor(rating) }, (_, index) => index + 1);
+  }
 }

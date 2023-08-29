@@ -6,7 +6,10 @@ import {ERole} from "./role.enum";
 
 export interface IUser{
   id: number;
-  username: string;
+  nickname: string;
+  username:string;
+  birth:string;
+  gender:string;
   password: string;
   email: string;
   favorite: IEstablishment[];

@@ -1,0 +1,7 @@
+<div (click)="goBack()" class="back">Назад</div>
+<div>
+<form [formGroup]="form" (ngSubmit)="complaint()" class="complaint-form">
+  Текст cкарги: <textarea type="text" formControlName="text" required class="form-input"></textarea>
+  <button type="submit">Зберегти відгук</button>
+</form>
+</div>

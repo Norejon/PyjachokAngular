@@ -9,3 +9,4 @@ export * from "./type.enum";
 export * from "./user.interface";
 export * from "./userEstablishment.interface";
 export * from "./auth.interface";
+export * from "./analitic.interface";

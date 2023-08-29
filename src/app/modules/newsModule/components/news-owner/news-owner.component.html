@@ -1,0 +1,4 @@
+<div (click)="goBack()" class="back">Назад</div><br>
+<button routerLink="add" routerLinkActive="active">Добавити новину</button>
+<app-new *ngFor="let new of news"[new]="new"></app-new>
+

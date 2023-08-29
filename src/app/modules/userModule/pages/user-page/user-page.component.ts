@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-user-page',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class UserPageComponent {
 
+  constructor(private location: Location) {
+  }
+
+
+  goBack(): void {
+    this.location.back();
+  }
 }

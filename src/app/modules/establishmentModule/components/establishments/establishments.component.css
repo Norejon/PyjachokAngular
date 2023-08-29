@@ -1,0 +1,84 @@
+.filter{
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+select {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+}
+
+div label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+div label input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #FF0000;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #b30000;
+}
+div input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 30%;
+}
+
+.filter-dropdown {
+  display: none;
+}
+.filter-trigger {
+  cursor: pointer;
+  color: #FF0000;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px;
+}
+
+.filter-dropdown {
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  padding: 10px;
+}
+
+.filter-dropdown.show {
+  display: block;
+}
+
+
+::ng-deep .ngx-pagination li:not(.ngx-pagination-ellipsis) {
+  color: red !important;
+  background: #FFFFFF;
+}
+
+::ng-deep .ngx-pagination li.active a {
+  background-color: red !important;
+  border-color: red !important;
+}

@@ -1,1 +1,2 @@
-<app-user *ngFor="let user of users" [user]="user"></app-user>
+<app-user *ngFor="let user of users | paginate: { itemsPerPage: 10, currentPage: currentPage }" [user]="user"></app-user>
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>

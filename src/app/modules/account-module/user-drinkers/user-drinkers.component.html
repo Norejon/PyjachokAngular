@@ -1,0 +1,2 @@
+<app-drinker *ngFor="let drinker of drinkers | paginate: {itemsPerPage: 10, currentPage:currentPage}" [drinker]="drinker"></app-drinker>
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>

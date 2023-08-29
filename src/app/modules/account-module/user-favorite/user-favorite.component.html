@@ -1,0 +1,5 @@
+<div *ngFor="let establishment of establishments | paginate: { itemsPerPage: 10, currentPage: currentPage }" class="establishment">
+  <app-establishment [establishment]="establishment"></app-establishment>
+</div>
+
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>

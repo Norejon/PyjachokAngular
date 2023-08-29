@@ -1,0 +1,108 @@
+.info{
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 8px;
+}
+.header{
+  display: flex;
+}
+.header div{
+  cursor: pointer;
+  padding: 10px;
+  padding: 20px 0px 20px 0px;
+  width: 50%;
+  font-size: 20px;
+  text-align: center;
+  color: #FFFFFF;
+  transition: color 0.2s, background-color 0.2s;
+  border-radius: 8px;
+  background-color: rgb(255, 0, 0);
+}
+.header div:hover{
+  background: #c50000;
+}
+
+.event {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 8px;
+  margin:10px;
+}
+
+.event button {
+  font-size: 16px;
+  background-color: #FF0000;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+.event div {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  background-color: #FF0000;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.event div.active {
+  font-weight: bold;
+  background-color: #FF0000;
+  color: #FFFFFF;
+}
+
+.back{
+  color: #FFFFFF;
+  border-radius: 30px 0 0 30px;
+  border: none;
+  padding: 5px;
+  display: inline-block;
+  background-color: #FF0000;
+  cursor: pointer;
+  margin: 10px;
+
+}
+
+.event div:hover{
+  background: #c50000;
+}
+
+.confirm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.confirm button {
+  font-size: 16px;
+  background-color: #FF0000;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  width: 50%;
+  padding: 10px;
+  cursor: pointer;
+}

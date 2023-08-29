@@ -1,0 +1,25 @@
+.header{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.header div {
+  cursor: pointer;
+  padding: 10px;
+  padding: 20px 0px 20px 0px;
+  width: 25%;
+  font-size: 20px;
+  text-align: center;
+  color: #FFFFFF;
+  transition: color 0.2s, background-color 0.2s;
+  border-radius: 8px;
+  background-color: rgb(255, 0, 0);
+}
+
+.header div.active {
+  font-size: 25px;
+  font-weight: bold;
+  background-color: #FFFFFF;
+  color: #FF0000;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}

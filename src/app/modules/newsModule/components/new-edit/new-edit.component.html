@@ -1,0 +1,23 @@
+<div (click)="goBack()" class="back">Назад</div>
+<form [formGroup]="editForm" (ngSubmit)="submitForm()" class="form-container">
+  <label class="form-label">
+    Title:
+    <input type="text" formControlName="title" required class="form-input">
+  </label><br><br>
+
+  <label class="form-label">
+    Type:
+    <select formControlName="type" required class="form-select">
+      <option value="ANY">ANY</option>
+      <option value="ACTIONS">ACTIONS</option>
+      <option value="EVENTS">EVENTS</option>
+    </select>
+  </label><br><br>
+
+  <label class="form-label">
+    Text:
+    <textarea formControlName="text" required class="form-textarea"></textarea>
+  </label><br><br>
+
+  <button type="submit" class="form-button">Зберегти</button>
+</form>

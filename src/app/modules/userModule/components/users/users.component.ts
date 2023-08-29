@@ -10,6 +10,7 @@ import {IUser} from "../../../../interfaces";
 export class UsersComponent implements OnInit{
 
   users:IUser[]
+  currentPage = 1;
 
 constructor(private userService:UserService) {
 }
@@ -18,4 +19,7 @@ constructor(private userService:UserService) {
     this.userService.getAll().subscribe(value => this.users=value)
   }
 
+  pageChanged(event: number): void {
+    this.currentPage = event;
+  }
 }

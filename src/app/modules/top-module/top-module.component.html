@@ -1,0 +1,9 @@
+<div class="header">
+  <div routerLink="/tops/restaurant" routerLinkActive="active">Ресторан</div>
+  <div routerLink="/tops/cafe" routerLinkActive="active">Кафе</div>
+  <div routerLink="/tops/bar" routerLinkActive="active">Бар</div>
+  <div routerLink="/tops/pizzeria" routerLinkActive="active">Піцерія</div>
+</div>
+<ng-container *ngIf="establishments">
+  <app-establishment *ngFor="let establishment of establishments.slice(0, 5)" [establishment]="establishment"></app-establishment>
+</ng-container>

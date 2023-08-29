@@ -1,0 +1,12 @@
+<div routerLink="{{grade.id}}" routerLinkActive="active" class="grade">
+  Оцінка:{{ grade.grade }}
+  Текст: {{ grade.text }}
+  <button (click)="confirmDelete()">Видалити</button>
+</div>
+<div class="confirm" *ngIf="showConfirm">
+  <div class="confirm-content">
+    <h2>Ви впевнені щодо видалення?</h2>
+    <button (click)="deleteGrade()" (click)="hideConfirm()">Так</button>
+    <button (click)="hideConfirm()">Ні</button>
+  </div>
+</div>
