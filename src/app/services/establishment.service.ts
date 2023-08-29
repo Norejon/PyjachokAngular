@@ -45,6 +45,7 @@ export class EstablishmentService {
     const url = urls.image;
     return this.httpClient.post(url, formData, {
       responseType: 'text'
+
     });
   }
 
